@@ -13,4 +13,11 @@
 //     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
 //   }
 // ]
-export default []
+export default [
+  // 登录
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('@/views/login')
+  }
+]

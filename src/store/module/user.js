@@ -3,7 +3,7 @@ const TOKEN_KEY = 'toutiao_user'
 export default {
   namespaced: true,
   state: {
-    users: get(TOKEN_KEY) || {}
+    users: get(TOKEN_KEY)
   },
   mutations: {
     setToken (state, payload) {

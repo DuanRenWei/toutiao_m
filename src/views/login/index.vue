@@ -1,6 +1,6 @@
 <template>
   <div class="login-container">
-    <van-nav-bar class="page-nav-bar" title="登录" />
+    <van-nav-bar class="page-nav-bar" left-arrow @click-left="$router.back()" title="登录" />
     <van-form @submit="submitHandler" ref="loginForm">
       <van-field
         name="mobile"
@@ -95,6 +95,8 @@ export default {
       this.$toast.success('登录成功！')
       // 用户信息存入vuex中
       this.setToken(data)
+      // 跳转到用户中心
+      this.$router.push({ name: 'my' })
     }
   }
 }

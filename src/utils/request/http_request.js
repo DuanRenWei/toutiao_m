@@ -1,4 +1,5 @@
 import axios from 'axios'
+import store from '@/store'
 import { Toast } from 'vant'
 import { baseUrl } from './../../config/config.default'
 import ErrorHandler from '../../errors/error_handler'
@@ -20,21 +21,29 @@ class HttpRequest {
     }
   }
 
-  // 请求拦截
+  // 拦截器
   interceptors (instance, url) {
-    // Add a request interceptor
+    // 请求拦截
     instance.interceptors.request.use(config => {
-      // 请求成功...
+      // 自动添加token
+      const users = store.getters.users
+      if (users && users.access_token) {
+        config.headers.Authorization = `Bearer ${users.access_token}`
+      }
+
+      // 如果没有请求，添加loading效果
       if (!Object.keys(this.queue).length) {
-        // 如果没有请求，添加loading效果
         Toast.loading({
           message: '加载中...',
           forbidClick: true,
           duration: 0
         })
       }
+
       // 防止重复请求
       this.queue[url] = true
+
+      // 返回请求信息
       return config
     }, error => {
       // 请求失败...

@@ -14,7 +14,12 @@ import {
   GridItem,
   Cell,
   CellGroup,
-  Dialog
+  Dialog,
+  Icon,
+  Tab,
+  Tabs,
+  List,
+  PullRefresh
 } from 'vant'
 
 Vue
@@ -33,6 +38,11 @@ Vue
   .use(Cell)
   .use(CellGroup)
   .use(Dialog)
+  .use(Icon)
+  .use(Tab)
+  .use(Tabs)
+  .use(List)
+  .use(PullRefresh)
 
 Vue.prototype.$toast = Toast
 Vue.prototype.$dialog = Dialog

@@ -20,7 +20,7 @@
             lazy-load
             src="https://img01.yzcdn.cn/vant/cat.jpeg"
           />
-          <h4>{{userInfo.username}}</h4>
+          <h4 v-if="userInfo">{{userInfo.username}}</h4>
         </div>
         <div class="user-edit">
           <van-button type="default" size="mini" round>编辑资料</van-button>

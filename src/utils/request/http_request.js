@@ -33,11 +33,11 @@ class HttpRequest {
 
       // 如果没有请求，添加loading效果
       if (!Object.keys(this.queue).length) {
-        Toast.loading({
-          message: '加载中...',
-          forbidClick: true,
-          duration: 0
-        })
+        // Toast.loading({
+        //   message: '加载中...',
+        //   forbidClick: true,
+        //   duration: 0
+        // })
       }
 
       // 防止重复请求
